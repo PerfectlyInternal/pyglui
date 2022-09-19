@@ -1,0 +1,42 @@
+pyglui is a poorly-documented mess of a library developed by Pupil Labs. This document is (hopefully) a way for us to understand and use this library for plugin development.
+
+## Creating a menu for a plugin ##
+Here's an example for how to create a menu with a slider. This is available as part of the example plugin, but is poorly explained there.
+```
+def init_ui(self):
+                # init the ui and give the menu a name
+                self.add_menu()
+                self.menu.label = "Example Plugin Menu"
+
+                # making a slider
+		# the name *must* be the same as the variable it controls
+		# i have no idea how or why it does that
+                self.menu.append(ui.Slider("example_variable", self, min=1))
+```
+
+## Drawing things on the screen ##
+Assuming you're drawing on the world camera's screen, you don't need to change GL contexts or anything of the sort. If you're drawing on the eye cam windows, good luck, because I've no clue how to do that. (perhaps digging thru some code/examples will reveal the secret?) All the following code should be put into the gl_display() method of the plugin.
+
+# Drawing points #
+Works for either 2D or 3D, but 3D will behave... strangely?
+```
+draw_points(points, size=20, color=RGBA(1.,0.5,0.5,.5), sharpness=0.8)
+```
+
+# Drawing a circle #
+Only works in 2D, would be nice if it worked in 3D
+```
+draw_circle(center_position=(0,0), radius=20, stroke_width=2, color=RGBA(1.,0.5,0.5,0.5), sharpness=0.8):
+```
+
+# Drawing a rounded rectangle #
+Only works in 2D (why would you even want this in 3D?)
+```
+draw_rounded_rect(origin, size, corner_radius, color=RGBA(1.,0.5,0.5,.5), sharpness=0.8)
+```
+
+# Drawing lines #
+Just like points, works in either 3D or 2D, but 3D seems broken?
+```
+draw_polyline(verts, thickness=1, color=RGBA(1.,0.5,0.5,.5), line_type=GL_LINE_STRIP)
+```
