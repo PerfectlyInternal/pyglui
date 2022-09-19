@@ -15,7 +15,7 @@ def init_ui(self):
 ```
 
 ## Drawing things on the screen ##
-Assuming you're drawing on the world camera's screen, you don't need to change GL contexts or anything of the sort. If you're drawing on the eye cam windows, good luck, because I've no clue how to do that. (perhaps digging thru some code/examples will reveal the secret?) All the following code should be put into the gl_display() method of the plugin.
+Assuming you're drawing on the world camera's screen, you don't need to change GL contexts or anything of the sort. If you're drawing on the eye cam windows, good luck, because I've no clue how to do that. (perhaps digging thru some code/examples will reveal the secret?) All the following code should be put into the gl_display() method of the plugin. All of the following methods are found in `pyglui.cygl.utils`.
 
 # Drawing points #
 Works for either 2D or 3D, but 3D will behave... strangely?
@@ -40,3 +40,6 @@ Just like points, works in either 3D or 2D, but 3D seems broken?
 ```
 draw_polyline(verts, thickness=1, color=RGBA(1.,0.5,0.5,.5), line_type=GL_LINE_STRIP)
 ```
+
+## Drawing in 3D ##
+Drawing in 3D requires a little more work than in 2D, since you need to set up the camera. This is where things get interesting, because pyglui does not directly support such concepts as "drawing stuff in 3D" despite having handling for 3D points and lines.
