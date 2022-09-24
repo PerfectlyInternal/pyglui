@@ -42,4 +42,4 @@ draw_polyline(verts, thickness=1, color=RGBA(1.,0.5,0.5,.5), line_type=GL_LINE_S
 ```
 
 ## Drawing in 3D ##
-Drawing in 3D requires a little more work than in 2D, since you need to set up the camera. This is where things get interesting, because pyglui does not directly support such concepts as "drawing stuff in 3D" despite having handling for 3D points and lines.
+Drawing in 3D requires a little more work than in 2D, since you need to set up the camera. This is where things get interesting, because pyglui does not directly support such concepts as "drawing stuff in 3D" despite having handling for 3D points and lines. Fortunately, we have access to `glew`, a library that gives us direct access to GL calls. Unfortunately, this means we have to manually explain to OpenGL how we want to render things. Even less fortunately, I've got no clue what units Pupil Capture outputs the gaze position in, or where it assumes the world camera is relative to those points.
