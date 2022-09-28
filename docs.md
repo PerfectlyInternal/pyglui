@@ -79,4 +79,4 @@ glPopMatrix()
 ```
 
 ## How does Pupil Capture report gaze position? ##
-Gaze position is reported via the event system, which plugins can access via the `recent_events()` callback. Long story short, it gives you XYZ coords of the gaze position, relative to the world camera. Unfortunately it is unknown what units this uses, or what the assumed FOV of the world camera is. This is to be determined via experimentation at a later date (whenever kenny gets the DG working, hopefully)
+Gaze position is reported via the event system, which plugins can access via the `recent_events()` callback. Long story short, it gives you XYZ coords of the gaze position, relative to the world camera. Unfortunately it is unknown what units this uses, or what the assumed FOV of the world camera is. This is to be determined via experimentation at a later date (whenever kenny gets the DG working, hopefully) UPDATE: We've roughly determined the FOV of the camera to be 40 degrees vertically. Check the source code for the calibration assistant for more details.
